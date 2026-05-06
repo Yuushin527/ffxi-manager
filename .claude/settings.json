@@ -1,4 +1,6 @@
 {
+  "model": "opusplan",
+  "effortLevel": "high",
   "permissions": {
     "allow": [
       "Bash(git log*)",
@@ -12,14 +14,30 @@
       "Bash(git fetch*)",
       "Bash(git pull*)",
       "Bash(git push*)",
+      "Bash(git stash*)",
       "Bash(dotnet*)",
+      "Bash(mkdir*)",
+      "Bash(touch*)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(echo *)",
+      "Bash(ls*)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(ssh sfreedom@*)",
+      "Bash(scp *)",
+      "Bash(wp *)",
       "WebFetch(*)"
     ],
     "deny": [
       "Bash(git push --force*)",
+      "Bash(git push -f*)",
       "Bash(git reset --hard*)",
-      "Bash(git clean -f*)",
+      "Bash(git clean -fdx*)",
       "Bash(rm -rf*)",
+      "Bash(rm -fr*)",
+      "Bash(sudo *)",
       "Bash(Remove-Item * -Recurse -Force*)"
     ]
   }
