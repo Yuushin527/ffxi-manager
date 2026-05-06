@@ -31,7 +31,7 @@ jobs:
       - name: Setup signing key
         shell: pwsh
         run: |
-          [System.IO.File]::WriteAllBytes("ffximanager.snk", [Convert]::FromBase64String("${{ secrets.SIGNING_KEY }}"))
+          [System.IO.File]::WriteAllBytes("ffxi-manager/ffximanager.snk", [Convert]::FromBase64String("${{ secrets.SIGNING_KEY }}"))
 
       - name: Cache NuGet packages
         uses: actions/cache@v4
@@ -42,15 +42,15 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Restore dependencies
-        run: dotnet restore ${{ env.PROJECT_NAME }}.csproj
+        run: dotnet restore ffxi-manager/${{ env.PROJECT_NAME }}.csproj
 
       - name: Build application
-        run: dotnet build ${{ env.PROJECT_NAME }}.csproj --configuration ${{ env.BUILD_CONFIGURATION }} --no-restore
+        run: dotnet build ffxi-manager/${{ env.PROJECT_NAME }}.csproj --configuration ${{ env.BUILD_CONFIGURATION }} --no-restore
 
       - name: Verify strong name signing
         shell: pwsh
         run: |
-          $assemblyPath = "bin/${{ env.BUILD_CONFIGURATION }}/net9.0-windows/${{ env.PROJECT_NAME }}.dll"
+          $assemblyPath = "ffxi-manager/bin/${{ env.BUILD_CONFIGURATION }}/net9.0-windows/${{ env.PROJECT_NAME }}.dll"
           if (Test-Path $assemblyPath) {
             $assembly = [System.Reflection.Assembly]::LoadFile((Resolve-Path $assemblyPath).Path)
             $fullName = $assembly.FullName
@@ -77,7 +77,7 @@ jobs:
 
       - name: Create build artifacts (PR only)
         if: github.event_name == 'pull_request'
-        run: dotnet publish ${{ env.PROJECT_NAME }}.csproj --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --output publish
+        run: dotnet publish ffxi-manager/${{ env.PROJECT_NAME }}.csproj --configuration ${{ env.BUILD_CONFIGURATION }} --no-build --output publish
 
       - name: Upload PR artifacts
         if: github.event_name == 'pull_request'
@@ -109,7 +109,7 @@ jobs:
         if: always()
         shell: pwsh
         run: |
-          $sensitiveFiles = @("ffximanager.snk")
+          $sensitiveFiles = @("ffxi-manager/ffximanager.snk")
           foreach ($file in $sensitiveFiles) {
             if (Test-Path $file) {
               Remove-Item $file -Force
