@@ -1,0 +1,3 @@
+[submodule "PolProxy/POL-Proxy"]
+	path = PolProxy/POL-Proxy
+	url = https://github.com/jaku/POL-Proxy
