@@ -1,3 +1,6 @@
 [submodule "PolProxy/POL-Proxy"]
 	path = PolProxy/POL-Proxy
 	url = https://github.com/jaku/POL-Proxy
+[submodule "autoPOL"]
+	path = autoPOL
+	url = https://github.com/jaku/FFXI-autoPOL
