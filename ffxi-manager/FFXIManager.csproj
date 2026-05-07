@@ -15,8 +15,7 @@
     <FileVersion>1.3.2</FileVersion>
 
     <!-- Strong name signing -->
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>ffximanager.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>false</SignAssembly>
     <!-- Enable analyzers and set strict analysis level -->
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>

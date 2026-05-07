@@ -1,6 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using FFXIManager.Infrastructure;
 using FFXIManager.ViewModels;
+using FFXIManager.Views.ClaudeLogin;
 
 namespace FFXIManager.Views
 {
@@ -9,12 +11,20 @@ namespace FFXIManager.Views
         public HeaderView()
         {
             InitializeComponent();
-            // Ensure DataContext is set to the HeaderViewModel so bindings and commands work
             DataContext = new HeaderViewModel(
                 ServiceLocator.UiDispatcher,
                 ServiceLocator.SettingsService,
                 ServiceLocator.ExternalApplicationService,
                 ServiceLocator.PlayOnlineMonitorService);
+        }
+
+        private void ClaudeLoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ClaudeLoginDialog
+            {
+                Owner = Window.GetWindow(this)
+            };
+            dialog.ShowDialog();
         }
     }
 }

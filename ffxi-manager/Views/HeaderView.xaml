@@ -39,6 +39,10 @@
                         Command="{Binding ToggleThemeCommand}"
                         Style="{StaticResource SecondaryButton}"
                         MinWidth="64" Height="26" Margin="0,0,6,0"/>
+                	<Button Content="ClaudeLogin"
+                        Click="ClaudeLoginButton_Click"
+                        Style="{StaticResource SecondaryButton}"
+                        MinWidth="100" Height="26" Margin="0,0,6,0"/>
                 	<Button Content="Settings"
                         Command="{Binding OpenSettingsCommand}"
                         Style="{StaticResource PrimaryButton}"
