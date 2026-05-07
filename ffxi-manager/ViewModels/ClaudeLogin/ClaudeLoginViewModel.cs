@@ -16,6 +16,12 @@ namespace FFXIManager.ViewModels.ClaudeLogin
 
         public ObservableCollection<ClaudeCharacter> Characters { get; } = [];
         public ObservableCollection<string> AvailableBins { get; } = [];
+        public List<int> SlotOptions { get; } = [1, 2, 3, 4];
+
+        public string AvailableBinsHint =>
+            AvailableBins.Count > 0
+                ? "利用可能: " + string.Join(", ", AvailableBins)
+                : "（chars*.bin が見つかりません）";
 
         public ClaudeCharacter? Selected
         {
