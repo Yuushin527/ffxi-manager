@@ -39,5 +39,6 @@
       "Bash(sudo *)",
       "Bash(Remove-Item * -Recurse -Force*)"
     ]
-  }
+  },
+  "language": "japanese"
 }
