@@ -40,5 +40,6 @@
       "Bash(Remove-Item * -Recurse -Force*)"
     ]
   },
-  "language": "japanese"
+  "language": "japanese",
+  "autoMemoryEnabled": false
 }
